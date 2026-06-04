@@ -442,5 +442,29 @@
     <div style="margin-top: 1.5rem; opacity: 0.65; font-size: 0.7rem; letter-spacing: 1px; color: #a2876f; text-align: center;">
         <i class="fas fa-seedling"></i> С любовью, навсегда <i class="fas fa-seedling"></i>
     </div>
+        <!-- Фоновая музыка -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const bgAudio = document.getElementById('bgMusic');
+        let played = false;
+        
+        function playBackgroundMusic() {
+            if (!played) {
+                bgAudio.play().then(() => {
+                    played = true;
+                }).catch(e => console.log('Ошибка воспроизведения'));
+                document.removeEventListener('click', playBackgroundMusic);
+                document.removeEventListener('touchstart', playBackgroundMusic);
+            }
+        }
+        
+        document.addEventListener('click', playBackgroundMusic);
+        document.addEventListener('touchstart', playBackgroundMusic);
+    </script>
+</body>
+</html>
 </body>
 </html>
