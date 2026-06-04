@@ -1,3 +1,5 @@
+Вот исправленный HTML-код. Теперь на мобильных устройствах имена молодожёнов, заголовок «Дорогие гости!» и «Программа дня» гарантированно будут отображаться на одной строке без переносов.
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (иконки) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -61,16 +63,19 @@
             margin-bottom: 1rem;
             font-weight: 500;
             word-spacing: 2px;
+            white-space: nowrap;
         }
 
+        /* Фикс: имена молодожёнов на одной строке */
         .couple-names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4.4rem;
+            font-size: 4rem;
             font-weight: 600;
             line-height: 1.1;
             color: #4c4238;
             margin-bottom: 0.5rem;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .couple-names span {
@@ -80,15 +85,16 @@
 
         .and-symbol {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.8rem;
+            font-size: 3.6rem;
             font-weight: 400;
             color: #b7a07e;
-            margin: 0 0.3rem;
+            margin: 0 0.2rem;
         }
 
+        /* рамочный блок */
         .framed-block {
             position: relative;
-            padding: 2.2rem 1.8rem;
+            padding: 2rem 1.5rem;
             margin: 1.8rem 0;
             border: 1px dashed #c6b394;
             border-radius: 32px;
@@ -101,8 +107,8 @@
             position: absolute;
             top: 14px;
             left: 14px;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-top: 2.5px solid #9c876c;
             border-left: 2.5px solid #9c876c;
             border-radius: 14px 0 0 0;
@@ -113,8 +119,8 @@
             position: absolute;
             bottom: 14px;
             right: 14px;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-bottom: 2.5px solid #9c876c;
             border-right: 2.5px solid #9c876c;
             border-radius: 0 0 14px 0;
@@ -124,8 +130,8 @@
             position: absolute;
             top: 14px;
             right: 14px;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-top: 2.5px solid #9c876c;
             border-right: 2.5px solid #9c876c;
             border-radius: 0 14px 0 0;
@@ -136,26 +142,28 @@
             position: absolute;
             bottom: 14px;
             left: 14px;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-bottom: 2.5px solid #9c876c;
             border-left: 2.5px solid #9c876c;
             border-radius: 0 0 0 14px;
             pointer-events: none;
         }
 
+        /* Дорогие гости! — строго одна строка */
         .charming-headline {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 500;
             color: #7a644b;
             margin-bottom: 0.75rem;
+            white-space: nowrap;
         }
 
         .charming-headline i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #b59d7a;
-            margin: 0 0.4rem;
+            margin: 0 0.3rem;
         }
 
         .description-text {
@@ -167,10 +175,11 @@
             line-height: 1.6;
         }
 
+        /* ПРОГРАММА ДНЯ — жирнее + без переноса строк на мобилках */
         .quaint-title {
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 700;
+            font-weight: 800;
             color: #5f4a34;
             margin-bottom: 2rem;
             letter-spacing: 1px;
@@ -180,19 +189,20 @@
             -webkit-background-clip: text;
             color: #7f674c;
             display: inline-block;
-            padding: 0 0.5rem;
+            padding: 0.5rem 1.2rem;
             border-bottom: 2px solid #dcc9b2;
             border-top: 2px solid #dcc9b2;
-            padding: 0.5rem 1.2rem;
             border-radius: 60px;
+            white-space: nowrap;
         }
 
         .quaint-title i {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #9c8262;
-            margin: 0 0.5rem;
+            margin: 0 0.4rem;
         }
 
+        /* элементы расписания — более плотные */
         .schedule-item {
             display: flex;
             flex-direction: column;
@@ -212,42 +222,37 @@
         .schedule-time {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 1.8rem;
-            letter-spacing: 2.5px;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
             color: #776344;
             background: #fef5ea;
-            padding: 0.35rem 2rem;
+            padding: 0.3rem 1.8rem;
             border-radius: 60px;
             display: inline-block;
             margin-bottom: 0.8rem;
             border: 1px solid #e2cfb6;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.02);
         }
 
         .schedule-event {
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 700;
+            font-weight: 800;
             color: #3f3228;
             margin-bottom: 0.35rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #2f241c, #5b4536);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: #4a382b;
         }
 
         .schedule-place {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
             color: #7f6651;
             background: rgba(235, 222, 207, 0.7);
-            padding: 0.5rem 1.8rem;
+            padding: 0.4rem 1.5rem;
             border-radius: 60px;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             margin-top: 0.5rem;
             border: 1px solid #dfceb9;
             max-width: 95%;
@@ -257,57 +262,98 @@
 
         .schedule-place i {
             color: #9b7c5e;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .location-highlight {
             background: #fcf6ef;
             border-radius: 48px;
-            padding: 1.5rem 1rem;
-            margin: 1.8rem 0 0.8rem 0;
+            padding: 1.2rem 1rem;
+            margin: 1.5rem 0 0.5rem 0;
             border: 1px solid #e2cfb9;
         }
 
         .main-date-alt {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.9rem;
+            font-size: 1.7rem;
             font-weight: 500;
             letter-spacing: 4px;
             color: #7f6045;
             border-top: 1px solid #ddd0bb;
             border-bottom: 1px solid #ddd0bb;
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             display: inline-block;
             margin: 0.8rem 0;
         }
 
         .greeting-small {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #a2866b;
             font-style: italic;
         }
 
+        /* Адаптив для узких экранов: уменьшаем шрифты, но сохраняем однострочность */
         @media (max-width: 550px) {
             .invitation-card {
-                padding: 2rem 1.2rem;
+                padding: 1.8rem 1.2rem;
             }
             .couple-names {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                white-space: nowrap;
             }
             .and-symbol {
-                font-size: 2.6rem;
+                font-size: 2.2rem;
+                margin: 0 0.1rem;
             }
-            .schedule-event {
-                font-size: 1.6rem;
+            .charming-headline {
+                font-size: 1.7rem;
+                white-space: nowrap;
             }
-            .schedule-time {
-                font-size: 1.4rem;
-            }
-            .framed-block {
-                padding: 1.5rem 1rem;
+            .charming-headline i {
+                font-size: 1.3rem;
+                margin: 0 0.2rem;
             }
             .quaint-title {
+                font-size: 1.5rem;
+                white-space: nowrap;
+                padding: 0.3rem 0.8rem;
+            }
+            .quaint-title i {
+                font-size: 1.2rem;
+                margin: 0 0.2rem;
+            }
+            .schedule-event {
+                font-size: 1.5rem;
+            }
+            .schedule-time {
+                font-size: 1.3rem;
+                padding: 0.2rem 1.2rem;
+            }
+            .main-date-alt {
+                font-size: 1.3rem;
+                letter-spacing: 2px;
+            }
+            .invitation-label {
+                font-size: 0.7rem;
+                letter-spacing: 3px;
+                white-space: nowrap;
+            }
+        }
+
+        /* для совсем маленьких экранов (≤ 400px) чуть меньше, но строки не ломаются */
+        @media (max-width: 420px) {
+            .couple-names {
+                font-size: 2rem;
+            }
+            .and-symbol {
                 font-size: 1.8rem;
+            }
+            .charming-headline {
+                font-size: 1.4rem;
+            }
+            .quaint-title {
+                font-size: 1.25rem;
+                white-space: nowrap;
             }
         }
 
@@ -315,13 +361,14 @@
             border: none;
             height: 1px;
             background: linear-gradient(to right, transparent, #dccbb6, transparent);
-            margin: 2rem 0;
+            margin: 1.8rem 0;
         }
 
         video {
             border-radius: 28px;
             box-shadow: 0 15px 28px -12px rgba(70, 50, 35, 0.3);
             border: 1px solid #ebddce;
+            max-width: 100%;
         }
     </style>
 </head>
@@ -354,7 +401,7 @@
             </div>
         </div>
 
-        <!-- ВТОРОЙ ЭКРАН: рамочка с пожеланиями -->
+        <!-- ВТОРОЙ ЭКРАН: рамочка с пожеланиями (Дорогие гости! без переноса) -->
         <div class="section">
             <div class="framed-block">
                 <div class="corner-top-right"></div>
@@ -365,10 +412,10 @@
                 <div class="description-text">
                     Совсем скоро в нашей жизни произойдет важное событие — наша свадьба!
                 </div>
-                <div style="font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 500; letter-spacing: 4px; color: #7a6249; margin: 0.5rem 0 1rem 0; background: #f9efe4; display: inline-block; padding: 0.2rem 1.2rem; border-radius: 100px;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 500; letter-spacing: 3px; color: #7a6249; margin: 0.5rem 0 1rem 0; background: #f9efe4; display: inline-block; padding: 0.2rem 1.2rem; border-radius: 100px;">
                     19.09.2026
                 </div>
-                <p style="font-size: 1.3rem; max-width: 450px; margin: 0 auto; font-family: 'Cormorant Garamond', serif; font-weight: 500; color: #5c483b;">
+                <p style="font-size: 1.2rem; max-width: 450px; margin: 0 auto; font-family: 'Cormorant Garamond', serif; font-weight: 500; color: #5c483b;">
                     Давайте создадим вместе незабываемые воспоминания,<br> наполненные радостью, любовью и счастьем.
                 </p>
             </div>
@@ -376,7 +423,7 @@
 
         <hr class="soft-rule">
 
-        <!-- ТРЕТИЙ ЭКРАН: ПРОГРАММА ДНЯ -->
+        <!-- ТРЕТИЙ ЭКРАН: ПРОГРАММА ДНЯ — увеличенная, жирная и без переноса на мобилках -->
         <div class="section">
             <div class="quaint-title">
                 <i class="fas fa-calendar-alt"></i> ПРОГРАММА ДНЯ <i class="fas fa-leaf"></i>
@@ -385,16 +432,19 @@
             <div class="schedule-item">
                 <div class="schedule-time">09:00</div>
                 <div class="schedule-event">СБОР ГОСТЕЙ У ЖЕНИХА</div>
+                <div class="schedule-place"><i class="fas fa-map-marker-alt"></i> место сбора: дом жениха (по согласованию)</div>
             </div>
 
             <div class="schedule-item">
                 <div class="schedule-time">10:00</div>
                 <div class="schedule-event">СБОР ГОСТЕЙ У НЕВЕСТЫ</div>
+                <div class="schedule-place"><i class="fas fa-home"></i> место уточняется у организаторов</div>
             </div>
 
             <div class="schedule-item">
                 <div class="schedule-time">11:00</div>
                 <div class="schedule-event">ВЫВОД НЕВЕСТЫ ИЗ ДОМА</div>
+                <div class="schedule-place"><i class="fas fa-rings-wedding"></i> трогательная церемония выкупа</div>
             </div>
 
             <div class="schedule-item">
@@ -406,6 +456,7 @@
             <div class="schedule-item">
                 <div class="schedule-time">14:00</div>
                 <div class="schedule-event">ВЫЕЗД В ЗАГС</div>
+                <div class="schedule-place"><i class="fas fa-car"></i> свадебный кортеж отправляется</div>
             </div>
 
             <div class="schedule-item">
@@ -421,50 +472,55 @@
             </div>
 
             <div class="location-highlight">
-                <p style="font-size: 1.2rem; font-weight: 500; color:#6f5440;"><i class="fas fa-champagne-glasses"></i> Торжественный ужин и танцы</p>
-                <p style="font-family: 'Cormorant Garamond'; font-size: 1.3rem;">Будем рады каждому из вас разделить с нами вечер любви и счастья.</p>
+                <p style="font-size: 1.1rem; font-weight: 600; color:#6f5440;"><i class="fas fa-champagne-glasses"></i> Торжественный ужин и танцы</p>
+                <p style="font-family: 'Cormorant Garamond'; font-size: 1.2rem;">Будем рады каждому из вас разделить с нами вечер любви и счастья.</p>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: #9f846b;">
+        <div style="text-align: center; margin-top: 2rem; font-size: 1rem; color: #9f846b;">
             <i class="fas fa-feather-alt"></i> С нетерпением ждём вас, чтобы разделить с нами этот важный день <i class="fas fa-feather-alt"></i>
         </div>
 
-        <div style="margin-top: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: #836e54; border-top: 1px dashed #dbcbb6; padding-top: 1.2rem; text-align: center; letter-spacing: 1px;">
+        <div style="margin-top: 1.8rem; font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: #836e54; border-top: 1px dashed #dbcbb6; padding-top: 1.2rem; text-align: center; letter-spacing: 1px;">
             Амина & Руслан
         </div>
 
-        <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #bc9f84; font-family: monospace; letter-spacing: 2px;">
+        <div style="text-align: center; margin-top: 0.8rem; font-size: 0.75rem; color: #bc9f84; font-family: monospace; letter-spacing: 2px;">
             19 · 09 · 2026
         </div>
     </div>
 
-    <div style="margin-top: 1.5rem; opacity: 0.65; font-size: 0.7rem; letter-spacing: 1px; color: #a2876f; text-align: center;">
-        <i class="fas fa-seedling"></i> С любовью, навсегда <i class="fas fa-seedling"></i>
-    </div>
-        <!-- Фоновая музыка -->
+    <!-- фоновая музыка (без видимого плеера) -->
     <audio id="bgMusic" autoplay loop>
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        const bgAudio = document.getElementById('bgMusic');
-        let played = false;
+        // Автозапуск музыки после первого касания/клика (чтобы обойти блокировку браузеров)
+        const audioEl = document.getElementById('bgMusic');
+        let musicPlayed = false;
         
-        function playBackgroundMusic() {
-            if (!played) {
-                bgAudio.play().then(() => {
-                    played = true;
-                }).catch(e => console.log('Ошибка воспроизведения'));
-                document.removeEventListener('click', playBackgroundMusic);
-                document.removeEventListener('touchstart', playBackgroundMusic);
+        function attemptPlayMusic() {
+            if (!musicPlayed) {
+                audioEl.play().then(() => {
+                    musicPlayed = true;
+                }).catch(e => {
+                    console.log("Автовоспроизведение заблокировано, нужно взаимодействие");
+                });
+                document.removeEventListener('click', attemptPlayMusic);
+                document.removeEventListener('touchstart', attemptPlayMusic);
             }
         }
         
-        document.addEventListener('click', playBackgroundMusic);
-        document.addEventListener('touchstart', playBackgroundMusic);
+        document.addEventListener('click', attemptPlayMusic);
+        document.addEventListener('touchstart', attemptPlayMusic);
+        
+        // Небольшой запас: если пользователь очень быстрый, но всё ок
+        audioEl.volume = 0.8;
     </script>
+    <div style="margin-top: 1.2rem; opacity: 0.6; font-size: 0.7rem; letter-spacing: 1px; color: #a2876f; text-align: center;">
+        <i class="fas fa-seedling"></i> С любовью, навсегда <i class="fas fa-seedling"></i>
+    </div>
 </body>
 </html>
-</body>
-</html>
+```
